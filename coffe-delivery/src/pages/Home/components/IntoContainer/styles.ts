@@ -11,7 +11,7 @@ export const IntoContainer = styled.section`
       position: fixed;
       top: 0;
       left: 0;
-      max-height: 544px;
+      height: 100vh;
       width: 100vw;
       object-fit: cover;
       z-index: -1;
