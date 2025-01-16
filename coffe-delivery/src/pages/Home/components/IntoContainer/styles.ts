@@ -1,21 +1,22 @@
 import styled from "styled-components";
+import { mixins } from "../../../../styles/mixins";
 
 export const IntoContainer = styled.section`
+    margin-bottom: 6rem;
     position: relative;
     display: flex;
     max-width: 72.5rem;
     max-height: 34rem;
 
-    img#hero-bg {
+    /* img#hero-bg {
       position: absolute;
-      position: fixed;
       top: 0;
       left: 0;
-      height: 100vh;
+      height: 600px;
       width: 100vw;
       object-fit: cover;
       z-index: -1;
-  }
+  } */
 
 `
 
@@ -29,15 +30,13 @@ export const HeaderInto = styled.div`
     
     h1 {
         color: ${props => props.theme.colors["base-title"]};
-        font-size: 48px;
-        line-height: extraBold;
         margin-bottom: 16px;
+        ${mixins.fonts.titleXL}
     }
 
     p {
         color: ${props => props.theme.colors["base-subtitle"]};
-        font-size: 20px;
-        line-height: regular;
+        ${mixins.fonts.textL}
     }
 `
 
@@ -61,8 +60,9 @@ export const ItensInto = styled.div`
         }
 
         span {
-
+            ${mixins.fonts.textM}
         }
+
     }
 
     

@@ -38,7 +38,7 @@ export function Into(){
                 <img src="./images/hero.svg" alt="" />
             </div>  
 
-            <img src="./images/hero-bg.svg" alt="" id="hero-bg" />
+            {/* <img src="./images/hero-bg.svg" alt="" id="hero-bg" /> */}
 
         </IntoContainer>
     )
