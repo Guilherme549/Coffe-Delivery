@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { useTheme } from "styled-components";
-import { CoffeeContainer, CoffeeContent, CoffeeImg, CoffeeInfo, CoffeeListContainer, Control, ShoppinCartButton, Tags } from "./styles";
+import { CoffeeContainer, CoffeeContent, CoffeeImg, CoffeeInfo, Control, ShoppinCartButton, Tags } from "./styles";
 
 type Props = {
     coffee: {

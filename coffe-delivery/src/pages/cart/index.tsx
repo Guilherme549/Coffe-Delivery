@@ -1,46 +1,109 @@
-import { MapPinLine } from "phosphor-react"
-import { useTheme } from "styled-components"
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import { useTheme } from "styled-components";
+import { QuantityInput } from "../../components/Form/QuantityInput";
+import { AddressAndPayment, CartContainer, FormPayment, Payments, PaymentsContainer } from "./styles";
 
-export function Cart(){
-    const Theme = useTheme()
+export function Cart() {
+    const theme = useTheme();
+
     return (
-        <div>
-            <div>
-                <h5>Complete seu pedido</h5>
+        <CartContainer>
+            
+            <AddressAndPayment>
+            <h5>Complete seu pedido</h5>
+                <div>
+                    <FormPayment id="order">
+                        <label htmlFor="address">
+                            <div>
+                                <MapPinLine weight="light" size={22} color={theme.colors["yellow-dark"]} />
+                                <p>Endereço de Entrega</p>
+                                <p>Informe o endereço onde deseja receber seu pedido</p>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <input id="cep" type="number" placeholder="CEP" />
+                                </div>
+
+                                <div>
+                                    <input id="street" type="text" placeholder="Rua" />
+                                </div>
+
+                                <div>
+                                    <input id="number" type="number" placeholder="Número" />
+                                    <input id="complement" type="text" placeholder="Complemento" />
+                                </div>
+
+                                <div>
+                                    <input id="neighborhood" type="text" placeholder="Bairro" />
+                                    <input id="city" type="text" placeholder="Cidade" />
+                                    <input id="state" type="text" placeholder="UF" />
+                                </div>
+                            </div>
+                        </label>
+                        {/* PAGAMENTO */}
+                        <div>
+                            <div>
+                                <CurrencyDollar weight="regular" size={22} color={theme.colors.purple} />
+                                <div>
+                                    <p>Pagamento</p>
+                                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                                </div>
+                            </div>
+                            <div>
+                                <label>
+                                    <CreditCard weight="regular" color={theme.colors.purple} />
+                                    <span>CARTÃO DE CRÉDITO</span>
+                                </label>
+
+                                <label>
+                                    <Bank weight="regular" color={theme.colors.purple} />
+                                    <span>CARTÃO DE DÉBITO</span>
+                                </label>
+
+                                <label>
+                                    <Money weight="regular" color={theme.colors.purple} />
+                                    <span>DINHEIRO</span>
+                                </label>
+                            </div>
+                        </div>
+                    </FormPayment>
+                </div>  
+            </AddressAndPayment>
+            {/* CAFES SELECIONADOS */}
+            
+            <Payments>
                 <h5>Cafés selecionados</h5>
-            </div>
-            <div>
-                <form>
-                    <label htmlFor="address">
+                <PaymentsContainer>
+                    {/* CAFE */}
+                    <div>
+                        <img src="images/coffees/americano.png" alt="Americano Coffee" />
                         <div>
-                        <MapPinLine weight="light" size={22} color={Theme.colors["yellow-dark"]}/>
-                        <p>Endereço de Entrega</p>
-                        <p>Informe o endereço onde deseja receber seu pedido</p>
+                            <span>Expresso Tradicional</span>
+                            <QuantityInput />
+                        </div>
+                    </div>
+
+                    {/* PRECO TOTAL */}
+                    <div>
+                        <div>
+                            <p>Total de itens</p>
+                            <span>R$ 29,70</span>
+                        </div>
+                        <div>
+                            <p>Entrega</p>
+                            <span>R$ 3,50</span>
+                        </div>
+                        <div>
+                            <p>Total</p>
+                            <span>R$ 33,20</span>
                         </div>
 
-                        <div>
-                            <div>
-                                <input type="number" placeholder="CEP"/>
-                            </div>
-
-                            <div>
-                                <input type="text" placeholder="Rua"/>
-                            </div>
-
-                            <div>
-                                <input type="number" placeholder="Número"/>
-                                <input type="text"placeholder="Complemento" />
-                            </div>
-
-                            <div>
-                                <input type="text" placeholder="Bairro" />
-                                <input type="text" placeholder="Cidade" />
-                                <input type="text" placeholder="UF"/>
-                            </div>
-                        </div>
-                    </label>
-                </form>
-            </div>
-        </div>
-    )
+                        <button type="submit" form="order">Confirmar pedido</button>
+                    </div>
+                </PaymentsContainer>
+                
+            </Payments>
+        </CartContainer>
+    );
 }
