@@ -17,10 +17,9 @@ export const GlobalStyle = createGlobalStyle`
         background: ${props => props.theme.colors.background};
         color: ${(props) => props.theme.colors['base-text']};
         -webkit-font-smoothing: antialiased;
-
-
+        overflow-y: scroll;
+        
     }
-
 
     button {
         border: none;

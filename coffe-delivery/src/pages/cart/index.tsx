@@ -1,7 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { useTheme } from "styled-components";
 import { QuantityInput } from "../../components/Form/QuantityInput";
-import { AddressAndPayment, CartContainer, FormPayment, Payments, PaymentsContainer } from "./styles";
+import { AddressAndPayment, AddressInto, CartContainer, FormPayment, Inputs, Payments, PaymentsContainer } from "./styles";
 
 export function Cart() {
     const theme = useTheme();
@@ -14,13 +14,15 @@ export function Cart() {
                 <div>
                     <FormPayment id="order">
                         <label htmlFor="address">
-                            <div>
+                            <AddressInto>
                                 <MapPinLine weight="light" size={22} color={theme.colors["yellow-dark"]} />
-                                <p>Endereço de Entrega</p>
-                                <p>Informe o endereço onde deseja receber seu pedido</p>
-                            </div>
+                                <div>
+                                    <p >Endereço de Entrega</p>
+                                    <span>Informe o endereço onde deseja receber seu pedido</span>
+                                </div>
+                            </AddressInto>
 
-                            <div>
+                            <Inputs>
                                 <div>
                                     <input id="cep" type="number" placeholder="CEP" />
                                 </div>
@@ -39,7 +41,7 @@ export function Cart() {
                                     <input id="city" type="text" placeholder="Cidade" />
                                     <input id="state" type="text" placeholder="UF" />
                                 </div>
-                            </div>
+                            </Inputs>
                         </label>
                         {/* PAGAMENTO */}
                         <div>
