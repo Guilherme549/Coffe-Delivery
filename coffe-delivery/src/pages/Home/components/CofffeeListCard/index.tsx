@@ -1,192 +1,52 @@
-import { ShoppingCart } from "phosphor-react";
+import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { useTheme } from "styled-components";
-import { CoffeeContainer, CoffeeContent, CoffeeImg, CoffeeInfo, CoffeeListContainer, Tags } from "./styles";
+import { CoffeeContainer, CoffeeContent, CoffeeImg, CoffeeInfo, CoffeeListContainer, Control, ShoppinCartButton, Tags } from "./styles";
+
+type Props = {
+    coffee: {
+        id: string
+        title: string
+        description: string
+        tags: string[]
+        price: number
+        image: string
+    }
+}
 
 
-export function CoffeeListCard(){
+
+export function CoffeeListCard( { coffee }: Props){
     const Theme = useTheme()
     return (
-        <CoffeeListContainer>
                 
                 <CoffeeContent>
                     <CoffeeContainer>
                             <header>
-                                <CoffeeImg src="./images/coffees/expresso.png" alt="Imagem de um café expresso" />
+                                <CoffeeImg src={coffee.image} alt={coffee.title} />
                             </header>
                             <Tags>
-                                <span>Tradicional</span>
+                                {coffee.tags.map((tag) => (
+                                    <span>{tag}</span>
+                                ))}
                             </Tags>
                             
                         <CoffeeInfo>
-                            <h3>Expresso Tradicional</h3>
-                            <span>O tradicional café feito com água quente e grãos moídos</span>
+                            <h3>{coffee.title}</h3>
+                            <span>{coffee.description}</span>
                         </CoffeeInfo>
-                        <footer>
-                            <p>R$ <span>9,90</span></p>
+                        <Control>
+                            <p>R$ <span>{coffee.price.toFixed(2).replace('.', ',')}</span></p>
                             <div>
-                                <button>-</button>
+                                <button><Minus size={14} color={Theme.colors.purple}/></button>
                                 <span>1</span>
-                                <button>+</button>
-                                <button>
-                                    <ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }} />
-                                </button>
+                                <button><Plus size={14} color={Theme.colors.purple}/></button>
                             </div>
-                        </footer>
+                            <ShoppinCartButton>
+                                    <ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple-dark'] }} />
+                            </ShoppinCartButton>
+                        </Control>
                     </CoffeeContainer>
                 </CoffeeContent>
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <header>
-                            <img src="./images/coffees/expresso.png" alt="" />
-                        </header>
-                        <body>
-                            <h4>Expresso Tradicional</h4>
-                            <p>O tradicional café feito com água quente e grãos moídos</p>
-                        </body>
-                        <footer>
-                            R$ <span>9,90</span>
-                            <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                                <button><ShoppingCart size={22} color={Theme.colors.background} weight="fill" style={{ backgroundColor: Theme.colors['purple'] }}/></button>
-                            </div>
-                        </footer>
-                    </div>
-                    
-                    
-                </div>
-
                 
-            </CoffeeListContainer>
     )
 }
